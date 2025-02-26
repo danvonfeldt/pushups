@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pushup Progress</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .progress-container {
+            width: 80%;
+            background-color: #eee;
+            border-radius: 10px;
+            position: relative;
+            margin: 20px auto;
+            height: 30px;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #4caf50;
+            border-radius: 10px;
+            position: relative;
+            transition: width 0.5s;
+        }
+        .emoji {
+            position: absolute;
+            top: -10px;
+            font-size: 24px;
+            transition: left 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pushup Progress Tracker</h1>
+    <p>Total pushups goal until age 85: <strong>2,338,140</strong></p>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="emoji" id="emoji">💪</div>
+    </div>
+    <p><span id="pushupCount">2,140</span> / 2,338,140 ☠️</p>
+
+    <script>
+        const totalPushups = 2338140;
+        const currentPushups = 2140;
+        const percentage = (currentPushups / totalPushups) * 100;
+        
+        document.getElementById("progressBar").style.width = percentage + "%";
+        document.getElementById("emoji").style.left = `calc(${percentage}% - 10px)`;
+        document.getElementById("pushupCount").innerText = currentPushups.toLocaleString();
+    </script>
+</body>
+</html>
